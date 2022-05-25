@@ -28,12 +28,27 @@ class Webp
 
 const WEBP_TRUE = new Webp();
 WEBP_TRUE.init();
-// document.addEventListener("scroll", () => {
-//     let navbar = document.querySelector(".header__navbar");
-//     navbar.style.top = 0;
+document.addEventListener("scroll", () => {
+    let menu = document.querySelector(".menu--fixed");
+    let menuCoord = menu.getBoundingClientRect();
 
-//     console.log(navbar.clientY);
+    let menu_position = menuCoord.top + pageYOffset;
+    let scroll_position = window.innerHeight + pageYOffset;
     
-//     console.log(navbar.getBoundingClientRect().y);
-//     console.log(navbar.getBoundingClientRect().top);
-// })
+    console.log(menu_position);
+    console.log(scroll_position);
+    
+    // if(scroll_position >= menu_position)
+    // {
+    //     menu.style.position = "fixed";
+    //     menu.style.top = 0;
+
+    //     document.querySelector(".header__person").style.display = "none";
+    // }
+    // else
+    // {
+    //     menu.style.position = "";
+    //     menu.style.top = "";
+    //     document.querySelector(".header__person").style.display = "";
+    // }
+});
