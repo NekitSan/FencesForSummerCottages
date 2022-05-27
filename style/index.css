@@ -37,6 +37,10 @@ h2,
 .btn {
   font-weight: 500; }
 
+img {
+  display: block;
+  width: 100%; }
+
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -752,3 +756,30 @@ h2,
         max-width: 122px; }
   .list_fences .next_info {
     bottom: 6px; } }
+
+@media only screen and (max-width: 675px) {
+  .header__line_info {
+    display: none; }
+  .list_fences .next_info {
+    bottom: 26px;
+    padding: 10px 18px; }
+  .banner {
+    height: 350px; }
+    .banner--hide {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      gap: 0; }
+    .banner__title {
+      padding-top: 80px;
+      padding-bottom: 40px;
+      font-size: 34px; }
+    .banner__paragraph {
+      font-size: 20px; }
+  .form__item svg {
+    display: none; } }
