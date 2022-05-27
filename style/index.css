@@ -627,7 +627,9 @@ h2,
     .header__navbar {
       margin: auto;
       padding-left: 0;
-      padding-right: 0; }
+      padding-right: 0;
+      -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+              box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3); }
       .header__navbar::after {
         content: "Menu";
         position: absolute;
@@ -702,6 +704,17 @@ h2,
       padding: 20px 15px; }
       .menu__link:hover {
         background-color: #436e3d; } }
+
+@media only screen and (max-width: 900px) {
+  .price__context {
+    display: block; }
+  .price__text {
+    padding: 15px 40px;
+    margin: 0 auto; }
+  .price__network {
+    max-width: 205px;
+    width: 100%;
+    margin: 0 auto; } }
 
 @media only screen and (max-width: 813px) {
   .banner {

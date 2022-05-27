@@ -63,23 +63,32 @@ document.querySelector(".menu--full").addEventListener("click", () => {
     document.querySelector(".menu__button").classList.toggle(menuMob);
 });
 
-document.body.addEventListener("click", (e) => {
-    if(
-        e.target != document.querySelector(".menu__link") || 
-        e.target != document.querySelector(".menu__item") || 
-        e.target != document.querySelector(".menu--full") || 
-        e.target != document.querySelector(".menu__button") ||
-        e.target != document.querySelector(".menu")
-    )
-    {
-        if(
-            !document.querySelector(".menu").classList.contains(menuMob) &&
-            !document.querySelector(".menu").classList.contains(menuMob)
-        )
-        {
-            console.log(true);
-            // document.querySelector(".menu").classList.add(menuMob);
-            // document.querySelector(".menu__button").classList.add(menuMob);
-        }
-    }
-});
+// document.body.addEventListener("click", (e) => {
+//     console.log(e.target);
+//     console.log(e.target.classList.contains(".menu"));
+//     if( !e.target.classList.contains(".menu__link") || 
+//         !e.target.classList.contains(".menu__item") || 
+//         !e.target.classList.contains(".menu--full") || 
+//         !e.target.classList.contains(".menu__button") ||
+//         !e.target.classList.contains(".menu"))
+//     {
+//         if(
+//             !document.querySelector(".menu").classList.contains(menuMob) &&
+//             !document.querySelector(".menu__button").classList.contains(menuMob)
+//         )
+//         {
+//             console.log(true);
+//             // document.querySelector(".menu").classList.add(menuMob);
+//             // document.querySelector(".menu__button").classList.add(menuMob);
+//         }
+//     }
+// });
+
+
+if(window.innerWidth < 920)
+{
+    document.querySelector(".menu__button").addEventListener("click", () => {
+        document.querySelector(".menu").classList.toggle(menuMob);
+        document.querySelector(".menu__button").classList.toggle(menuMob);
+    });
+}
