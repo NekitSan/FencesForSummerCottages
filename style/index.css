@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700;800&display=swap");
 *, *::after, *::before {
   margin: 0;
@@ -67,7 +68,9 @@ img {
   font-weight: 800;
   color: #000;
   text-transform: uppercase;
-  text-align: center; }
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px; }
 
 .btn {
   border-radius: 12px;
@@ -149,9 +152,10 @@ img {
       gap: 12px;
       margin-left: 25px; }
       .header__line_info__network a {
-        display: block;
-        height: 40px; }
+        display: block; }
       .header__line_info__network svg {
+        width: 34px;
+        height: 30px;
         margin-top: 4px;
         border-radius: 100%;
         -webkit-transition: all liner 0.35s;
@@ -178,7 +182,8 @@ img {
     height: 94px;
     margin: 0 auto;
     padding-left: 40px;
-    padding-right: 40px; }
+    padding-right: 40px;
+    background-color: #599D50; }
   .header__person {
     position: absolute;
     width: 270px;
@@ -198,7 +203,6 @@ img {
     top: 40px;
     left: 0;
     width: 100%;
-    background-color: #599D50;
     z-index: 9999; }
   .menu__button {
     padding: 15px 19px;
@@ -500,26 +504,29 @@ img {
   padding-bottom: 50px; }
 
 .price__context {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   padding-top: 20px; }
 
 .price__text {
-  max-width: 700px;
   width: 100%;
-  padding-right: 20px; }
+  padding-right: 20px;
+  padding-bottom: 20px; }
 
 .price__network {
-  border: solid 3px #82d5a5;
-  padding: 5px;
-  border-radius: 7px; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 780px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px 40px;
+  border-radius: 22px;
+  border: solid 3px #82d5a5; }
   .price__network_phone {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -591,19 +598,12 @@ img {
     width: 100%;
     height: auto; }
     .header__line_info {
-      display: block;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      width: 100%;
-      padding: 0 40px;
-      line-height: 40px;
-      color: #4F4F4F;
-      background-color: #f2f2f2; }
+      padding: 0 30px; }
       .header__line_info__item {
         display: -webkit-box;
         display: -ms-flexbox;
-        display: flex; }
+        display: flex;
+        font-size: 14px; }
       .header__line_info__network {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -611,8 +611,8 @@ img {
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        gap: 12px;
-        margin-left: 25px; }
+        gap: 8px;
+        margin-left: 15px; }
         .header__line_info__network a {
           display: block;
           height: 40px; }
@@ -635,11 +635,11 @@ img {
       -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
               box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3); }
       .header__navbar::after {
-        content: "Menu";
+        content: "Меню";
         position: absolute;
         top: 0;
         right: 0;
-        padding-right: 20px;
+        padding-right: 30px;
         width: 260px;
         height: 100%;
         display: -webkit-box;
@@ -666,6 +666,8 @@ img {
     padding-bottom: 90px;
     border-radius: 0 0 0 5px;
     text-align: center; }
+    .menu__desk-logo {
+      display: none; }
     .menu--mob {
       opacity: 0;
       height: 0;
@@ -687,7 +689,6 @@ img {
         display: block; }
     .menu--fixed {
       position: fixed;
-      top: 0;
       left: 0;
       width: 100%;
       background-color: #599D50;
@@ -698,7 +699,7 @@ img {
       right: 30px; }
     .menu__item--logo {
       position: fixed;
-      top: 4px;
+      top: 44px;
       left: 40px;
       height: 84px; }
       .menu__item--logo.hidden {
@@ -707,18 +708,13 @@ img {
       display: block;
       padding: 20px 15px; }
       .menu__link:hover {
-        background-color: #436e3d; } }
+        background-color: #436e3d; }
+  .banner {
+    padding-top: 20px; } }
 
 @media only screen and (max-width: 900px) {
-  .price__context {
-    display: block; }
-  .price__text {
-    padding: 15px 40px;
-    margin: 0 auto; }
-  .price__network {
-    max-width: 205px;
-    width: 100%;
-    margin: 0 auto; } }
+  .price {
+    padding: 15px 40px; } }
 
 @media only screen and (max-width: 813px) {
   .banner {
@@ -758,8 +754,18 @@ img {
     bottom: 6px; } }
 
 @media only screen and (max-width: 675px) {
-  .header__line_info {
-    display: none; }
+  .header {
+    position: relative;
+    width: 100%;
+    height: auto; }
+    .header__line_info {
+      display: block; }
+      .header__line_info__item:first-child {
+        display: none; }
+      .header__line_info__item:last-child {
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between; }
   .list_fences .next_info {
     bottom: 26px;
     padding: 10px 18px; }
@@ -776,10 +782,12 @@ img {
           flex-wrap: wrap;
       gap: 0; }
     .banner__title {
+      width: 80%;
       padding-top: 80px;
       padding-bottom: 40px;
       font-size: 34px; }
     .banner__paragraph {
+      width: 80%;
       font-size: 20px; }
   .form__item svg {
     display: none; } }

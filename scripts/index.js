@@ -28,6 +28,8 @@ class Webp
 
 const WEBP_TRUE = new Webp();
 WEBP_TRUE.init();
+const menuMob = "menu--mob";
+
 document.addEventListener("scroll", () => {
     let header = document.querySelector(".header");
     let menu = document.querySelector(".menu--fixed");
@@ -35,28 +37,39 @@ document.addEventListener("scroll", () => {
 
     let menu_position = menuCoord.bottom + pageYOffset;
     let scroll_position = pageYOffset;
+    let menu_top = 40;
 
-    if(window.innerWidth < 920)
-        scroll_position = 0;
+    if(scroll_position < menu_position)
+    {
+        if(window.innerWidth < 920)
+        {
+            menu.style.position = "fixed";
+            menu_top -= scroll_position;
+            menu.style.top = menu_top + "px";
+            document.querySelector(".mob-logo").style.top = menu_top + "px";
+        }
+
+        if(window.innerWidth > 920)
+        {
+            menu.style.position = "";
+            menu.style.top = "";
+            document.querySelector(".header__person").style.display = "";
+            document.querySelector(".mob-logo").style.top = "";
+        }
+    }
     
     if(scroll_position >= menu_position)
     {
         menu.style.position = "fixed";
-        menu.style.top = 0;
+        menu.style.top = "0px";
+        document.querySelector(".mob-logo").style.top = "4px";
         document.querySelector(".header__person").style.display = "none";
     }
-    else
-    {
-        menu.style.position = "";
-        menu.style.top = "";
-        document.querySelector(".header__person").style.display = "";
-    }
 
-
-    
+    document.querySelector(".menu").classList.add(menuMob);
+    document.querySelector(".menu__button").classList.add(menuMob);
 });
 
-const menuMob = "menu--mob";
 
 document.querySelector(".menu--full").addEventListener("click", () => {
     document.querySelector(".menu").classList.toggle(menuMob);
