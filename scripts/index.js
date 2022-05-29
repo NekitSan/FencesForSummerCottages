@@ -30,6 +30,15 @@ const WEBP_TRUE = new Webp();
 WEBP_TRUE.init();
 const menuMob = "menu--mob";
 
+if(window.innerWidth < 920)
+{
+    let mobilePhoneTags = document.querySelectorAll(".mob__phone");
+    for(let i = 0; i < mobilePhoneTags.length; i++)
+    {
+        mobilePhoneTags[i].setAttribute("href", "tel:+" + mobilePhoneTags[i].dataset.phone);
+    } 
+}
+
 document.addEventListener("scroll", () => {
     let header = document.querySelector(".header");
     let menu = document.querySelector(".menu--fixed");
@@ -68,6 +77,7 @@ document.addEventListener("scroll", () => {
 
     document.querySelector(".menu").classList.add(menuMob);
     document.querySelector(".menu__button").classList.add(menuMob);
+    document.querySelector(".submenu").classList.add("hidden");
 });
 
 
@@ -76,26 +86,24 @@ document.querySelector(".menu--full").addEventListener("click", () => {
     document.querySelector(".menu__button").classList.toggle(menuMob);
 });
 
-// document.body.addEventListener("click", (e) => {
-//     console.log(e.target);
-//     console.log(e.target.classList.contains(".menu"));
-//     if( !e.target.classList.contains(".menu__link") || 
-//         !e.target.classList.contains(".menu__item") || 
-//         !e.target.classList.contains(".menu--full") || 
-//         !e.target.classList.contains(".menu__button") ||
-//         !e.target.classList.contains(".menu"))
-//     {
-//         if(
-//             !document.querySelector(".menu").classList.contains(menuMob) &&
-//             !document.querySelector(".menu__button").classList.contains(menuMob)
-//         )
-//         {
-//             console.log(true);
-//             // document.querySelector(".menu").classList.add(menuMob);
-//             // document.querySelector(".menu__button").classList.add(menuMob);
-//         }
-//     }
-// });
+document.querySelector(".menu__list").addEventListener("touchstart", () => {
+    document.querySelector(".submenu").classList.toggle("hidden");
+    setTimeout(() => {
+        document.querySelector(".menu__list").setAttribute("href", "index.html");
+    }, 1);
+});
+
+document.body.addEventListener("mouseover", (e) => {
+    if(!e.target.closest(".menu__list") && !e.target.closest(".submenu"))
+        document.querySelector(".submenu").classList.add("hidden");
+});
+
+document.querySelector(".menu__list").addEventListener("mouseover", () => {
+    document.querySelector(".submenu").classList.remove("hidden");
+    setTimeout(() => {
+        document.querySelector(".menu__list").setAttribute("href", "index.html");
+    }, 1);
+});
 
 
 if(window.innerWidth < 920)

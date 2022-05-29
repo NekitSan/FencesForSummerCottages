@@ -154,7 +154,7 @@ img {
       .header__line_info__network a {
         display: block; }
       .header__line_info__network svg {
-        width: 34px;
+        width: 30px;
         height: 30px;
         margin-top: 4px;
         border-radius: 100%;
@@ -217,8 +217,10 @@ img {
       -webkit-transition: all ease .35s;
       -o-transition: all ease .35s;
       transition: all ease .35s; }
-  .menu__item--logo {
-    height: 84px; }
+  .menu__item {
+    position: relative; }
+    .menu__item--logo {
+      height: 84px; }
   .menu__link {
     line-height: 18px;
     font-size: 24px;
@@ -227,12 +229,25 @@ img {
     text-transform: uppercase;
     -webkit-transition: all ease .35s;
     -o-transition: all ease .35s;
-    transition: all ease .35s; }
+    transition: all ease .35s;
+    cursor: pointer; }
     .menu__link:hover {
       text-shadow: 1px 1px 10px #000;
       -webkit-transition: all ease .35s;
       -o-transition: all ease .35s;
       transition: all ease .35s; }
+
+.submenu {
+  position: absolute;
+  top: 23px;
+  left: -15px;
+  width: 330px;
+  padding-top: 10px; }
+  .submenu .menu__link {
+    display: block;
+    padding: 10px 15px;
+    font-size: 22px;
+    background-color: #599D50; }
 
 .banner {
   display: block;
@@ -305,7 +320,7 @@ img {
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
-    line-height: 18px; }
+    line-height: 22px; }
 
 .icon_text {
   padding-top: 40px;
@@ -527,7 +542,7 @@ img {
   padding: 5px 40px;
   border-radius: 22px;
   border: solid 3px #82d5a5; }
-  .price__network_phone {
+  .price__network_phone a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -545,8 +560,12 @@ img {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    gap: 10px;
+    gap: 20px;
     padding-top: 5px; }
+    .price__network_soc svg {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%; }
 
 .footer {
   display: -webkit-box;
@@ -709,6 +728,19 @@ img {
       padding: 20px 15px; }
       .menu__link:hover {
         background-color: #436e3d; }
+  .submenu {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    -webkit-transform: translate(-100%, 0);
+        -ms-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+    width: 292px;
+    text-align: left; }
+    .submenu .menu__link {
+      display: block;
+      padding: 10px 15px;
+      font-size: 22px; }
   .banner {
     padding-top: 20px; } }
 
@@ -791,3 +823,9 @@ img {
       font-size: 20px; }
   .form__item svg {
     display: none; } }
+
+@media only screen and (max-width: 444px) {
+  .price__network {
+    display: block; }
+    .price__network_phone a {
+      padding-bottom: 5px; } }
