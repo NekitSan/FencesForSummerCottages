@@ -78,6 +78,7 @@ document.addEventListener("scroll", () => {
     document.querySelector(".menu").classList.add(menuMob);
     document.querySelector(".menu__button").classList.add(menuMob);
     document.querySelector(".submenu").classList.add("hidden");
+    document.querySelector(".menu__button").style.top = "";
 });
 
 
@@ -88,23 +89,26 @@ document.querySelector(".menu--full").addEventListener("click", () => {
 
 document.querySelector(".menu__list").addEventListener("touchstart", () => {
     document.querySelector(".submenu").classList.toggle("hidden");
-    setTimeout(() => {
-        document.querySelector(".menu__list").setAttribute("href", "index.html");
-    }, 1);
+      
+    if(!document.querySelector(".submenu").classList.contains("hidden"))
+    {
+        document.querySelector(".menu__button").style.top = "434px";
+    }
+    else
+    {
+        document.querySelector(".menu__button").style.top = "";
+    }
 });
 
-document.body.addEventListener("mouseover", (e) => {
-    if(!e.target.closest(".menu__list") && !e.target.closest(".submenu"))
-        document.querySelector(".submenu").classList.add("hidden");
-});
-
-document.querySelector(".menu__list").addEventListener("mouseover", () => {
-    document.querySelector(".submenu").classList.remove("hidden");
-    setTimeout(() => {
-        document.querySelector(".menu__list").setAttribute("href", "index.html");
-    }, 1);
-});
-
+if(window.innerWidth > 920)
+{
+    document.querySelector(".menu__list").addEventListener("mouseover", () => {
+        document.querySelector(".submenu").classList.remove("hidden");
+        setTimeout(() => {
+            document.querySelector(".menu__list").setAttribute("href", "index.html");
+        }, 1);
+    });
+}
 
 if(window.innerWidth < 920)
 {
@@ -113,3 +117,14 @@ if(window.innerWidth < 920)
         document.querySelector(".menu__button").classList.toggle(menuMob);
     });
 }
+
+document.body.addEventListener("mouseover", (e) => {
+    if( !e.target.closest(".menu__list") && 
+        !e.target.closest(".submenu") &&
+        !e.target.closest(".menu__button")
+    )
+    {
+        document.querySelector(".submenu").classList.add("hidden");
+        document.querySelector(".menu__button").style.top = "";
+    }
+});
