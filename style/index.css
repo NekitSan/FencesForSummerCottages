@@ -375,6 +375,9 @@ img {
   -ms-grid-row-span: 2;
   -ms-grid-column: 1; }
 
+.we_work {
+  padding-bottom: 0px; }
+
 .list_fences {
   max-width: 1000px;
   width: 100%;
@@ -459,6 +462,13 @@ img {
       -webkit-transition: all ease .35s;
       -o-transition: all ease .35s;
       transition: all ease .35s; }
+
+.gallary__go_page {
+  padding: 40px 0;
+  text-align: center; }
+  .gallary__go_page__link {
+    font-size: 18px;
+    color: #1fa657; }
 
 .form {
   max-width: 780px;

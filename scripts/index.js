@@ -39,15 +39,17 @@ if(window.innerWidth < 920)
     } 
 }
 
-//Понравилась? -> Заказать -btn
-for(let linkForm of document.querySelectorAll(".form--scroll"))
+if(document.querySelector(".form") != undefined)
 {
-    let formCoord = document.querySelector(".form").getBoundingClientRect().top + pageYOffset;
-    linkForm.addEventListener("click", () => {
-        window.scrollTo({
-            top: formCoord - 120
-        });  
-    });
+    for(let linkForm of document.querySelectorAll(".form--scroll"))
+    {
+        let formCoord = document.querySelector(".form").getBoundingClientRect().top + pageYOffset;
+        linkForm.addEventListener("click", () => {
+            window.scrollTo({
+                top: formCoord - 120
+            });  
+        });
+    }
 }
 
 document.addEventListener("scroll", () => {
