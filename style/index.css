@@ -300,16 +300,6 @@ img {
   padding: 11px 12px;
   background-color: #ff5300;
   text-transform: uppercase; }
-  .call_to_action::after {
-    content: "";
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 100%;
-    height: 100%;
-    background-color: inherit;
-    border-radius: 12px;
-    z-index: -1; }
 
 .what_fence {
   padding-bottom: 60px; }
@@ -449,6 +439,12 @@ img {
       display: flex;
       gap: 8px;
       padding-bottom: 11px; }
+      .list_fences__benefit__item svg {
+        -webkit-box-flex: 0;
+            -ms-flex-positive: 0;
+                flex-grow: 0;
+        -ms-flex-negative: 0;
+            flex-shrink: 0; }
   .list_fences .next_info {
     position: absolute;
     bottom: 0;
@@ -464,11 +460,24 @@ img {
       transition: all ease .35s; }
 
 .gallary__go_page {
-  padding: 40px 0;
-  text-align: center; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: center;
+          flex-direction: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding: 40px 0; }
+  .gallary__go_page__text {
+    margin-top: 5px; }
   .gallary__go_page__link {
-    font-size: 18px;
-    color: #1fa657; }
+    max-width: 135px;
+    text-align: center;
+    margin: 0; }
 
 .form {
   max-width: 780px;
@@ -518,7 +527,8 @@ img {
     padding: 12px 30px;
     margin-bottom: 10px;
     border-radius: 20px;
-    background-color: #7DCA71; }
+    background-color: #7DCA71;
+    border: none; }
 
 #form--scroll {
   display: block;
@@ -837,7 +847,8 @@ img {
     grid-template-columns: 140px auto;
     padding-bottom: 70px; }
     .list_fences__item__img {
-      max-width: 140px; }
+      max-width: 140px;
+      height: 135px; }
       .list_fences__item__img--first {
         max-width: 132px; }
       .list_fences__item__img--last {
