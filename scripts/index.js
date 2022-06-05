@@ -118,7 +118,7 @@ if(window.innerWidth > 920)
     document.querySelector(".menu__list").addEventListener("mouseover", () => {
         document.querySelector(".submenu").classList.remove("hidden");
         setTimeout(() => {
-            document.querySelector(".menu__list").setAttribute("href", "index.html");
+            document.querySelector(".menu__list").setAttribute("href", "index");
         }, 1);
     });
 }
@@ -141,3 +141,98 @@ document.body.addEventListener("mouseover", (e) => {
         document.querySelector(".menu__button").style.top = "";
     }
 });
+document.querySelector("#online_phone").addEventListener("input", () => {
+    let valPhone = document.querySelector("#online_phone").value;
+    
+    if(valPhone == "+" || valPhone == "7" || valPhone == "8")
+        document.querySelector("#online_phone").value = "+7";
+    if(valPhone.match(/^[0-6,9]/g))
+        document.querySelector("#online_phone").value = "+7" + valPhone;
+
+    let autoFullInput = valPhone.match(/8\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}/g);
+    if( Array.isArray(autoFullInput) )
+    {
+        document.querySelector("#online_phone").value = autoFullInput[0].replace(/^8/,'+7');
+    }
+});
+
+
+function slider()
+{
+    const controllLeft = document.querySelector(".gallary__slider--control__left");
+    const controllRight = document.querySelector(".gallary__slider--control__right");
+
+    const sliderPreview = document.querySelector(".gallary__slider--preview");
+
+    const sliderPreviewIMG = sliderPreview.querySelector("img");
+    const sliderPreviewWebp = sliderPreview.querySelector("source");
+
+    const sliderList = document.querySelectorAll(".gallary__slider--list .gallary__slider--list__item");
+
+    sliderPreviewIMG.dataset.item = 0;
+    sliderPreviewIMG.setAttribute("src", srcPicture(0).type.img);
+    sliderPreviewWebp.setAttribute("srcset", srcPicture(0).type.webp);
+
+    for(let i = 0; i < sliderList.length; i++)
+        sliderList[i].dataset.item = i;
+
+    function srcPicture(item)
+    {
+        let imgItem = sliderList[item].querySelector("img").getAttribute("src");
+        let webpItem = sliderList[item].querySelector("source").getAttribute("srcset");
+
+        return {
+            "type": {"img": imgItem, "webp": webpItem},
+        };
+    }
+
+    controllLeft.addEventListener("click", () => {
+        sliderPreviewIMG.dataset.item = sliderPreviewIMG.dataset.item - 1;
+        if(sliderPreviewIMG.dataset.item < 1)
+        {
+            sliderPreviewIMG.dataset.item = (sliderList.length - 1);
+            sliderPreviewIMG.setAttribute("src", srcPicture(sliderList.length - 1).type.img);
+            sliderPreviewWebp.setAttribute("srcset", srcPicture(sliderList.length - 1).type.webp);
+        }
+        else
+        {
+            sliderPreviewIMG.setAttribute("src", srcPicture(sliderPreviewIMG.dataset.item).type.img);
+            sliderPreviewWebp.setAttribute("srcset", srcPicture(sliderPreviewIMG.dataset.item).type.webp);
+        }
+    });
+
+    controllRight.addEventListener("click", () => {
+        sliderPreviewIMG.dataset.item = (sliderPreviewIMG.dataset.item * 1) + 1;
+        if(sliderPreviewIMG.dataset.item > (sliderList.length - 1))
+        {
+            sliderPreviewIMG.dataset.item = 0;
+            sliderPreviewIMG.setAttribute("src", srcPicture(0).type.img);
+            sliderPreviewWebp.setAttribute("srcset", srcPicture(0).type.webp);
+        }
+        else
+        {
+            sliderPreviewIMG.setAttribute("src", srcPicture(sliderPreviewIMG.dataset.item).type.img);
+            sliderPreviewWebp.setAttribute("srcset", srcPicture(sliderPreviewIMG.dataset.item).type.webp);
+        }
+    });
+
+    for(let item of sliderList)
+    {
+        item.addEventListener("click", () => {
+            sliderPreviewIMG.dataset.item = item.dataset.item;
+            let srcIMG = item.querySelector("img").getAttribute("src");
+            let srcWEBP = item.querySelector("source").getAttribute("srcset");
+
+            sliderPreviewIMG.setAttribute("src", srcIMG);
+            sliderPreviewWebp.setAttribute("srcset", srcWEBP);
+        });
+    }
+    
+    // sliderListArea.addEventListener("mouseover", (e) => {
+    //     e.scrollIntoView({ behavior: 'smooth' });
+    // });
+}
+
+
+if(document.querySelector(".slider"))
+    slider();
